@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Unique Basic HTML — Mini Template</title>
+  <meta name="description" content="A small, clean, and unique starter HTML template with a bit of style and interactivity">
+  <style>
+    /* Simple, readable styling */
+    :root{--bg:#0f1724;--card:#0b1320;--text:#e6eef8;--accent:#6ee7b7}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45;background:linear-gradient(180deg,#071028 0%, #0b1b2b 100%);color:var(--text);padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04202a}
+    nav a{color:var(--text);text-decoration:none;margin-left:14px;font-weight:600;opacity:0.9}
+    main{margin-top:28px;display:grid;grid-template-columns:1fr;gap:18px}
+    .hero{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .card{background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    footer{margin-top:20px;text-align:center;color:rgba(230,238,248,0.7)}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#04202a;font-weight:700;text-decoration:none}
+    form{display:flex;flex-direction:column;gap:8px}
+    input,textarea{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+    small{color:rgba(230,238,248,0.6)}
+    /* subtle responsive */
+    @media(min-width:700px){main{grid-template-columns:2fr 1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">U</div>
+      <div>
+        <div style="font-weight:800">Unique Starter</div>
+        <small style="opacity:0.75">A neat basic HTML template</small>
+      </div>
+    </div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+      <a href="#" id="themeToggle">Toggle Theme</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 style="margin:0 0 8px">Hello — clean, small, and ready to use</h1>
+      <p style="margin:0 0 12px">This template shows semantic structure, lightweight styles, and a tiny script for interactivity. Copy it into a file named <code>index.html</code> and open it in your browser to start experimenting.</p>
+      <p><a class="btn" href="#contact">Get in touch</a></p>
+    </section>
+
+    <aside>
+      <div class="card">
+        <h3 style="margin-top:0">Quick features</h3>
+        <ul style="margin:6px 0 0;padding-left:18px">
+          <li>Responsive layout</li>
+          <li>Accessible markup (simple)</li>
+          <li>Small, single-file starter</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h4 style="margin:0 0 8px">Try this</h4>
+        <p style="margin:0 0 8px">Edit the heading, add sections, or replace the CSS with your own. The script below toggles a light theme for quick testing.</p>
+        <button class="btn" id="sampleAction">Say Hi</button>
+      </div>
+    </aside>
+
+    <section class="cards" id="features">
+      <div class="card">
+        <h3 style="margin-top:0">Readable HTML</h3>
+        <p>Use semantic tags and meaningful text for better accessibility.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Light script</h3>
+        <p>A few lines of JavaScript add interactivity without dependencies.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Expandable</h3>
+        <p>Drop in your own styles or a framework when you're ready to grow.</p>
+      </div>
+    </section>
+
+    <section class="card" id="contact">
+      <h3 style="margin-top:0">Contact form (demo)</h3>
+      <form id="contactForm" onsubmit="return handleSubmit(event)">
+        <label>Name <input type="text" id="name" placeholder="Your name" required></label>
+        <label>Email <input type="email" id="email" placeholder="you@example.com" required></label>
+        <label>Message <textarea id="message" rows="4" placeholder="A short message" required></textarea></label>
+        <small id="status"></small>
+        <div style="margin-top:8px"><button class="btn" type="submit">Send</button></div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <small>Made with ☕ — tweak freely. © <span id="year"></span></small>
+  </footer>
+
+  <script>
+    // small script: theme toggle, button, and form handling
+    const themeToggle = document.getElementById('themeToggle');
+    const sampleAction = document.getElementById('sampleAction');
+    const yearSpan = document.getElementById('year');
+    yearSpan.textContent = new Date().getFullYear();
+
+    themeToggle.addEventListener('click', (e)=>{
+      e.preventDefault();
+      // toggle a lightweight light theme by flipping root colors
+      const root = document.documentElement;
+      if(root.style.getPropertyValue('--bg')){
+        root.style.removeProperty('--bg');
+        root.style.removeProperty('--card');
+        root.style.removeProperty('--text');
+      } else {
+        root.style.setProperty('--bg','#f7fafc');
+        root.style.setProperty('--card','#ffffff');
+        root.style.setProperty('--text','#001219');
+      }
+    });
+
+    sampleAction.addEventListener('click', ()=>{
+      alert('Hi! You clicked a sample button.\nNow customize the template.');
+    });
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('status');
+
+      if(!name || !email || !message){
+        status.textContent = 'Please fill all fields.';
+        return false;
+      }
+
+      // mimic a lightweight submit (no network)
+      status.textContent = 'Thanks, ' + name + '! (This is a demo — no data is sent.)';
+      // reset after short delay
+      setTimeout(()=>{
+        status.textContent = '';
+        document.getElementById('contactForm').reset();
+      },2500);
+
+      return false;
+    }
+  </script>
+</body>
+</html>
