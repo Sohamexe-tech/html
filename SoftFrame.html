@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calm Portfolio Page</title>
+  <style>
+    :root {
+      --bg: #f0f4f8;
+      --text: #1a202c;
+      --accent: #4c6ef5;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #4c6ef5, #3b5bdb);
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 12px;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #364fc7;
+    }
+
+    main {
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+      color: var(--accent);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 16px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #4a5568;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #edf2ff;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    button {
+      display: inline-block;
+      padding: 8px 14px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #364fc7;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Calm Portfolio</h1>
+    <p>Simple, clean, and peaceful web design</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I’m a beginner web developer who loves crafting simple and elegant web pages. I enjoy experimenting with design, colors, and interactivity using just HTML, CSS, and a bit of JavaScript.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>Weather App</h3>
+          <p>A simple web app that shows the weather in your city using an API.</p>
+        </div>
+        <div class="card">
+          <h3>To-Do List</h3>
+          <p>Organize your day efficiently with this interactive to-do list.</p>
+        </div>
+        <div class="card">
+          <h3>Portfolio Page</h3>
+          <p>The page you’re viewing right now — designed for clarity and calm.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you’d like to collaborate or just say hello, click the button below!</p>
+      <button onclick="sayHello()">Say Hello 👋</button>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> My Calm Portfolio. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function sayHello(){
+      alert('Hello there! Thanks for visiting my portfolio!');
+    }
+  </script>
+
+</body>
+</html>
